@@ -8,6 +8,7 @@ import com.careerpilot.backendcodebase.entity.DifficultyLevel;
 import com.careerpilot.backendcodebase.entity.Options;
 import com.careerpilot.backendcodebase.entity.Question;
 import com.careerpilot.backendcodebase.entity.QuestionCategory;
+import com.careerpilot.backendcodebase.exception.ResourceNotFoundException;
 import com.careerpilot.backendcodebase.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,7 +46,7 @@ public class QuestionService {
     public List<QuestionResponseDTO> getByCategoryAndDifficulty(QuestionCategory category, DifficultyLevel difficulty) {
         List<Question> categoryQuestion = questionRepository.findByCategoryAndDifficulty(category, difficulty);
         if (categoryQuestion.isEmpty()) {
-            throw new RuntimeException("No question found with this Category  and difficulty Not Found");
+            throw new ResourceNotFoundException("No question found with this Category "+category+"  and difficulty"+difficulty+" Not Found");
         }
         return categoryQuestion.stream()
                 .map(this::mapToDTO)
