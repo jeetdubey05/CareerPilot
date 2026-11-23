@@ -1,12 +1,18 @@
 package com.careerpilot.backendcodebase.dtos;
 
+import com.careerpilot.backendcodebase.entity.QuestionCategory;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class StartAttemptDTO {
+
     private Long userId;
-    private String testType;   // e.g., "COMPANY_MOCK" or "TOPIC_PRACTICE"
-    private String sourceName; // e.g., "TCS", "Infosys", "Logical Reasoning"
+    private String testType;
+    private String sourceName;
     private Integer numberOfQuestions;
     private Long companyId;
+    private List<QuestionCategory> categories;
+    private String mockTestId;
 }

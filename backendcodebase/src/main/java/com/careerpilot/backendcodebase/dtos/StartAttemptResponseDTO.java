@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -13,5 +14,6 @@ import java.util.List;
 public class StartAttemptResponseDTO {
     private Long attemptId;
     private Integer totalQuestions;
+    private LocalDateTime expiresAt;
     private List<AttemptQuestionResponseDTO> questions;
 }

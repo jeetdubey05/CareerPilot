@@ -40,8 +40,11 @@ public class MockAttempt {
     private Integer correctAnswers;
 
     private Double scorePercentage;
+    private LocalDateTime expiresAt;
 
     @OneToMany(mappedBy = "mockAttempt", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<UserAnswer> userAnswers = new ArrayList<>();
+
+
 }

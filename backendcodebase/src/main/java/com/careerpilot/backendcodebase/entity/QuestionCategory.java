@@ -2,6 +2,7 @@ package com.careerpilot.backendcodebase.entity;
 
 public enum QuestionCategory {
     APTITUDE,
+    DSA,
     REASONING,
     OS,
     DBMS,
@@ -9,5 +10,6 @@ public enum QuestionCategory {
     PYTHON,
     CN,
     C,
+    ENGLISH,
 
 }

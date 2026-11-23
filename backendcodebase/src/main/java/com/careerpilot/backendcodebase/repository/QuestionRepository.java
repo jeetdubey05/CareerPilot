@@ -39,4 +39,17 @@ select q from Question q JOIN
     Page<Question> findByCompany(@Param("companyId") Long companyId,
                                             @Param("difficulty") DifficultyLevel difficulty,
                                             @Param("category") QuestionCategory category, Pageable pageable);
+
+
+@Query(value = """
+        SELECT *
+        FROM question
+        WHERE category IN (:categories)
+        ORDER BY RAND()
+        LIMIT :count
+        """, nativeQuery = true)
+List<Question> findRandomQuestionsByCategories(
+        @Param("categories") List<String> categories,
+        @Param("count") int count
+);
 }

@@ -4,9 +4,18 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "user_answers", indexes = {
-        @Index(name = "idx_answer_attempt", columnList = "attempt_id")
-})
+@Table(
+        name = "user_answers",
+        indexes = {
+                @Index(name = "idx_answer_attempt", columnList = "attempt_id")
+        },
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "uk_attempt_question",
+                        columnNames = {"attempt_id", "question_id"}
+                )
+        }
+)
 @Getter
 @Setter
 @NoArgsConstructor
