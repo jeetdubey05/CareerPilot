@@ -1,6 +1,7 @@
 package com.careerpilot.backendcodebase.entity;
 
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,8 +20,8 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-
-
+    @Column(nullable = false)
+    private String name;
     @Column(nullable=false)
     private String password;
     @Column(nullable=false,unique = true)

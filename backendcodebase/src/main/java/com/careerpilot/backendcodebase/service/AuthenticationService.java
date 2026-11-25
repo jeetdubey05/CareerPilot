@@ -39,6 +39,7 @@ public class AuthenticationService {
         User user = new User();
         user.setEmail(registerUserDTO.getEmail());
         user.setPhoneNumber(registerUserDTO.getPhoneNumber());
+        user.setName(registerUserDTO.getName());
         user.setRoles(roles);
         user.setPassword(passwordEncoder.encode(registerUserDTO.getPassword()));
         return userRepository.save(user);
@@ -54,6 +55,7 @@ public class AuthenticationService {
         User user = new User();
         user.setEmail(registerUserDTO.getEmail());
         user.setPhoneNumber(registerUserDTO.getPhoneNumber());
+        user.setName(registerUserDTO.getName());
         user.setRoles(roles);
         user.setPassword(passwordEncoder.encode(registerUserDTO.getPassword()));
         return userRepository.save(user);
@@ -72,6 +74,7 @@ public class AuthenticationService {
             return LoginResponseDTO.builder()
                     .jwtToken(Token)
                     .email(loginRequestDTO.getEmail())
+                    .name(user.getName())
                     .roles(user.getRoles())
                     .build();
         }

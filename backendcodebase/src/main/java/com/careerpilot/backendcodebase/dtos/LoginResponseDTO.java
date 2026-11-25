@@ -12,5 +12,6 @@ import java.util.Set;
 public class LoginResponseDTO {
     private String jwtToken;
     private String email;
+    private String name;
     private Set<String> roles;
 }
