@@ -28,4 +28,5 @@ public class CompanyController {
         return ResponseEntity.status(HttpStatus.OK).body(companyService.getCompany(PageRequest.of(page,size)));
 
     }
+
 }
